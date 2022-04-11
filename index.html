@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="LeLan-bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <div id="app" class="dark">
+
+        <div class="row g-0">
+            <div class="col-12 col-md-4 order-1 order-md-0">
+
+                <div id="playlist">
+                    <div class="header text-center fs-5 fw-bold">Playlist</div>
+                    <div class="px-3" id="list"></div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 p-2 p-md-3 order-0 order-md-1">
+                <div class="player">
+                    <header class="mb-4">
+                        <div class="title text-center fw-bold">Now Playing</div>
+                        <div class="name-heading text-center"></div>
+                    </header>
+                    <div class="cd responsive-md-cd">
+                        <div class="cd-thumb"></div>
+                    </div>
+                </div>
+
+                <div class="visualizations">
+                    <canvas id="canvas" style="width: 100%; height: 80px"></canvas>
+                </div>
+
+                <div class="control">
+                    <div class="time-duration">
+                        <input type="range" name="time" id="time" min="0" max="100" value="0">
+                    </div>
+                    <div class="control-btn">
+                        <span class="random-btn">
+                            <i class="fas fa-random"></i>
+                        </span>
+                        <span class="prev-btn">
+                            <i class="fas fa-step-backward"></i>
+                        </span>
+                        <span class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </span>
+                        <span class="next-btn">
+                            <i class="fas fa-step-forward"></i>
+                        </span>
+                        <span class="repeat-btn">
+                            <i class="fas fa-redo"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="assets/js/index.js"></script>
+    <!--<script src="assets/js/ez.js"></script>-->
+
+</body>
+
+</html>
