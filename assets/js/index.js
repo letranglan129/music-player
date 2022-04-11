@@ -69,54 +69,6 @@ const app = {
             img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
             audio: "assets/public/audio/Song Gio - Jack_ K-ICM.mp3"
         },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "assets/public/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "assets/public/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "assets/public/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "assets/public/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "assets/public/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
-        {
-            name: "Sóng Gió",
-            singger: "Đen Vâu, Thành Đồng",
-            img: "https://i1.sndcdn.com/artworks-000595652919-yvx8jv-t500x500.jpg",
-            audio: "/audio/Song Gio - Jack_ K-ICM.mp3"
-        },
     ],
     renderPlaylist() {
         var htmls = this.songs.map(

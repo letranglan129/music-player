@@ -87,4 +87,4 @@ setTimeout(() => {
             renderFrame();
         })
         // Gọi method để render vào canvas
-}, 5001);
+}, 0);
