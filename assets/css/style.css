@@ -1,247 +1,310 @@
-    /*=================================================
+/*=================================================
         Theme Name: Music Player
         Description: HTML, CSS, JS, BOOTSTRAP,
         Author: Lê Trạng Lân
         Version: 1.0.0
 ===================================================*/
-    /*======================STEPS======================
+/*======================STEPS======================
 1. Setting
 2. Header
 3. Banner
 4. Content
 5. Footer
 =================================================*/
-    /*======================SETTING=====================*/
-    
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Telex&display=swap');
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-    
-    #playlist #list::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(255, 255, 255, .3);
-    }
-    
-    #playlist #list::-webkit-scrollbar-track {
-        border-radius: 0;
-        background-color: transparent;
-    }
-    
-    #playlist #list::-webkit-scrollbar {
-        border-radius: 0;
-        width: 8px;
-    }
-    
-    #app {
-        height: 100vh;
-        font-family: 'Open Sans', sans-serif;
-        background: #fff;
-        overflow: hidden;
-    }
-    
-    #playlist .header {
-        border-bottom: 1px solid #dee2e6;
-        text-align: center;
-        height: 32px;
-    }
-    
-    #playlist #list {
-        overflow: auto;
-        height: calc(100vh - 32px);
-    }
-    
+/*======================SETTING=====================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Telex&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#playlist #list::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#playlist #list::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: transparent;
+}
+
+#playlist #list::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+#app {
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background: #fff;
+    overflow: hidden;
+}
+
+.btn-theme {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #000;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.btn-theme .btn-theme-light {
+    display: none;
+}
+.btn-theme .btn-theme-dark {
+    display: block;
+}
+
+#playlist .header {
+    border-bottom: 1px solid #dee2e6;
+    text-align: center;
+    height: 32px;
+}
+
+#playlist #list {
+    overflow: auto;
+    height: calc(100vh - 32px);
+}
+
+.player .title {
+    font-size: 24px;
+}
+
+.player .name-heading {
+    font-size: 16px;
+}
+
+.item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #dee2e6;
+    padding: 6px;
+    align-items: center;
+    z-index: 1;
+}
+
+.item.active::before {
+    position: absolute;
+    content: '';
+    top: 4px;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.item .index {
+    padding: 0 18px;
+    font-size: 14px;
+}
+
+.property {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item img {
+    width: 64px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item .desc {
+    position: relative;
+    width: 100%;
+    height: 64px;
+}
+
+.item .name {
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+    top: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item .info {
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+    bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.item .singger {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cd {
+    width: 300px;
+    margin: auto;
+    transition: width 0.3s, opacity 0.3s;
+}
+
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+#time {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    background: #fff;
+    outline: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 8px 0;
+}
+
+#time::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--background);
+    cursor: pointer;
+    border: 2px solid var(--borderColor);
+    box-shadow: var(--boxshadow);
+}
+
+#time::-moz-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--background);
+    cursor: pointer;
+    border: 2px solid var(--borderColor);
+    box-shadow: var(--boxshadow);
+}
+
+.playing .fa-play:before {
+    content: '\f04c';
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.control-btn span {
+    font-size: 28px;
+}
+
+.control-btn .random-btn.active,
+.control-btn .repeat-btn.active,
+#app.dark .control-btn .random-btn.active,
+#app.dark .control-btn .repeat-btn.active {
+    color: #f00;
+}
+
+.control-btn .play-btn {
+    font-size: 40px;
+    width: 84px;
+    height: 84px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 84px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -5px 5px rgba(100, 100, 100, 0.1),
+        inset 0 5px 5px rgba(255, 255, 255, 0.3),
+        inset -10px -10px 10px rgba(100, 100, 100, 0.1),
+        inset -10px -10px 10px 2px rgba(255, 255, 255, 0.3);
+}
+/* DARK MODE */
+
+#app.dark {
+    background: #000;
+}
+
+#app.dark .btn-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+#app.dark .item.active::before {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+#app.dark .btn-theme .btn-theme-light {
+    display: block;
+}
+#app.dark .btn-theme .btn-theme-dark {
+    display: none;
+}
+
+#app.dark .control-btn span {
+    color: #f8f9fa;
+}
+
+#app.dark {
+    color: #f8f9fa;
+}
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
     .player .title {
-        font-size: 24px;
-    }
-    
-    .player .name-heading {
         font-size: 16px;
     }
-    
-    .item {
-        display: flex;
-        justify-content: center;
-        border-bottom: 1px solid #dee2e6;
-        padding: 6px;
-        align-items: center;
-    }
-    
-    .item .index {
-        padding: 0 18px;
+    .player .name-heading {
         font-size: 14px;
     }
-    
-    .property {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-    }
-    
-    .item img {
-        width: 64px;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .item .desc {
-        position: relative;
-        width: 100%;
-        height: 64px;
-    }
-    
-    .item .name {
-        position: absolute;
-        width: 100%;
-        padding: 0 12px;
-        top: 6px;
-        font-size: 16px;
-        font-weight: 500;
-        white-space: nowrap;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    .item .info {
-        position: absolute;
-        width: 100%;
-        padding: 0 12px;
-        bottom: 6px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        font-weight: 400;
-    }
-    
-    .cd {
-        width: 300px;
-        margin: auto;
-        transition: width 0.3s, opacity 0.3s;
-    }
-    
-    .cd-thumb {
-        width: 100%;
-        padding-top: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border-radius: 50%;
-    }
-    
     #time {
-        width: 100%;
-        height: 10px;
-        -webkit-appearance: none;
-        background: #fff;
-        outline: none;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-        margin: 8px 0;
+        height: 6px;
     }
-    
     #time::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--background);
-        cursor: pointer;
-        border: 2px solid var(--borderColor);
-        box-shadow: var(--boxshadow);
+        width: 6px;
+        height: 6px;
+        border-width: 1px;
     }
-    
     #time::-moz-slider-thumb {
-        -webkit-appearance: none;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--background);
-        cursor: pointer;
-        border: 2px solid var(--borderColor);
-        box-shadow: var(--boxshadow);
+        width: 6px;
+        height: 6px;
+        border-width: 1px;
     }
-    
-    .playing .fa-play:before {
-        content: '\f04c';
+    .responsive-md-cd {
+        width: 150px;
     }
-    
-    .control-btn {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-    
     .control-btn span {
-        font-size: 28px;
+        font-size: 16px;
     }
-    
-    .control-btn .random-btn.active,
-    .control-btn .repeat-btn.active,
-    #app.dark .control-btn .random-btn.active,
-    #app.dark .control-btn .repeat-btn.active {
-        color: #f00;
-    }
-    
     .control-btn .play-btn {
-        font-size: 40px;
-        width: 84px;
-        height: 84px;
-        text-align: center;
-        border-radius: 50%;
-        line-height: 84px;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -5px 5px rgba(100, 100, 100, 0.1), inset 0 5px 5px rgba(255, 255, 255, 0.3), inset -10px -10px 10px rgba(100, 100, 100, 0.1), inset -10px -10px 10px 2px rgba(255, 255, 255, 0.3);
+        font-size: 28px;
+        width: 64px;
+        height: 64px;
+        line-height: 64px;
     }
-    /* DARK MODE */
-    
-    #app.dark {
-        background: #000;
-    }
-    
-    #app.dark .control-btn span {
-        color: #f8f9fa;
-    }
-    
-    #app.dark {
-        color: #f8f9fa;
-    }
-    /* RESPONSIVE */
-    
-    @media (max-width: 768px) {
-        .player .title {
-            font-size: 16px;
-        }
-        .player .name-heading {
-            font-size: 14px;
-        }
-        #time {
-            height: 6px;
-        }
-        #time::-webkit-slider-thumb {
-            width: 6px;
-            height: 6px;
-            border-width: 1px;
-        }
-        #time::-moz-slider-thumb {
-            width: 6px;
-            height: 6px;
-            border-width: 1px;
-        }
-        .responsive-md-cd {
-            width: 150px;
-        }
-        .control-btn span {
-            font-size: 16px;
-        }
-        .control-btn .play-btn {
-            font-size: 28px;
-            width: 64px;
-            height: 64px;
-            line-height: 64px;
-        }
-    }
+}
