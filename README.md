@@ -9,6 +9,9 @@
 
 Or click [here](https://github.com/letranglan129/music-player/archive/refs/heads/main.zip) to download zip file
 
+## Demo
+[Go to page](https://letranglan129.github.io/music-player)
+
 ## Features
   * Play song
   * Loop song
