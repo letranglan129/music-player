@@ -9,6 +9,10 @@
 
 Or click [here](https://github.com/letranglan129/music-player/archive/refs/heads/main.zip) to download zip file
 
+## Framework & Library
+   - HTML, CSS, Javascript
+   - Bootstrap
+
 ## Demo
 [Go to page](https://letranglan129.github.io/music-player)
 
