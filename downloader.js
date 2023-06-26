@@ -68,11 +68,14 @@ app.get('/getSong', async function (req, res) {
 	return res.json(data)
 })
 
+async function downloadSong() {
+	await saveMp3('iY1AnIsXedqE')
+	await saveMp3('aY3KIEnpCywU')
+	await saveMp3('kr9KYNtkzmnA')
+}
+
 app.listen(PORT, async () => {
-	setTimeout(async () => {
-		await saveMp3('iY1AnIsXedqE')
-		await saveMp3('aY3KIEnpCywU')
-		await saveMp3('kr9KYNtkzmnA')
-	}, 604800000)
+	downloadSong()
+	setTimeout(downloadSong, 604800000)
 	console.log(`Server đang lắng nghe trên cổng ${PORT}`)
 })

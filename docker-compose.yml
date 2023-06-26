@@ -1,8 +1,7 @@
 version: "3.8"
 services:
-  app-constant:
+  downloader-mp3:
     restart: always
-    image: nodejs
     build: 
       context: .
       dockerfile: dockerfile
