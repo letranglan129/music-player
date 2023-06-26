@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+    mp3player:
+        restart: always
+        image: nginx:1.25.0
+        ports:
+            - '8005:80'
+        volumes:
+            - .:/usr/share/nginx/html
+            - ./default.conf:/ect/nginx/conf.d/default.conf
