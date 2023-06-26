@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  app-constant:
+    restart: always
+    image: nodejs
+    build: 
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 8004:3000
+    command: "npm run start"
+    environment:
+      - PORT=3000
