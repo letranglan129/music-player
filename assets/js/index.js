@@ -19,7 +19,7 @@ const search = $('#search')
 const isTimeupdate = true
 const timeValue = $('#time').style
 const MUSIC_PLAYER = 'LeLan_Music'
-const API_URL = 'https://dare.serveo.net'
+const API_URL = 'https://downloadermp3.letranglan.top'
 const buttonTheme = $('.btn-theme')
 
 const app = {
